@@ -19,7 +19,19 @@ jobs:
   allow_failures:
     - python: "nightly"
     - python: "pypy3"
-
+    # added power support arch.
+    - python: "3.8"
+      env:
+        - JOB=check
+          arch: ppc64le
+    - python: "3.8"
+      env:
+        - JOB=docs
+          arch: ppc64le
+  allow_failures:
+    - python: "nightly"
+    - python: "pypy3"
+      arch: ppc64le
 install: |
   case $JOB in
     tests) pip install .;;
